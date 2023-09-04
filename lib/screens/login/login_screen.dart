@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
             children: [
               const SizedBox(height: 25),
-              // TO BE REPLACE WITH ACTUAL LOGO
+              // TO BE REPLACED WITH ACTUAL LOGO
               const Icon(Icons.lock, size: 100),
               // PLACEHOLDER TEXT
               Text(
