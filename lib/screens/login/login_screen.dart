@@ -40,7 +40,15 @@ class LoginScreen extends StatelessWidget {
                 obscureText: true,
               ),
 
-              // forgot pwd?
+              const SizedBox(height: 20),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [Text('Forgot password?', style: TextStyle(color: Colors.grey[600]))]
+                )
+              ),
 
               // sign in button
 
