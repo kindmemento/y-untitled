@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:y_mobile/components/signin_button.dart';
 import 'package:y_mobile/components/textfield.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -6,6 +7,9 @@ class LoginScreen extends StatelessWidget {
 
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+
+  // @TODO: sign in method
+  void signUserIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -43,20 +47,55 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [Text('Forgot password?', style: TextStyle(color: Colors.grey[600]))]
-                )
-              ),
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [Text('Forgot password?', style: TextStyle(color: Colors.grey[600]))])),
 
-              // sign in button
+              const SizedBox(height: 25),
 
-              // or continue with
+              SignInButton(onTap: signUserIn),
+              
 
-              // google OR apple sign in buttons
+              // or continue with google OR apple sign in buttons || THIS WILL BE IMPLEMENTED LATER ON
+              
+              // const SizedBox(height: 20),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              //   child: Row(
+              //     children: [
+              //       Expanded(
+              //         child: Divider(
+              //           thickness: 0.5,
+              //           color: Colors.grey[600],
+              //         )
+              //       ),
+              //       const Padding(
+              //         padding: EdgeInsets.symmetric(horizontal: 10.0),
+              //         child: Text(
+              //           'Or continue with',
+              //         ),
+              //       ),
+              //       Expanded(
+              //         child: Divider(
+              //           thickness: 0.5,
+              //           color: Colors.grey[600]
+              //         )
+              //       )
+              //     ],
+              //   )
+              // ),
 
-              // Don't have an account? Register now
+              const SizedBox(height: 25),
+
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don't have an account?"),
+                  SizedBox(width: 4),
+                  Text("Register now", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold))
+                ],
+              )
             ],
           )),
         ));
