@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:y_mobile/screens/login/login_screen.dart';
+import 'package:y_mobile/utils/auth_provider.dart';
 
 void main() {
-  runApp(const YUntitled());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AuthProvider(),
+      child: const YUntitled()
+      )
+  );
 }
 
 class YUntitled extends StatelessWidget {
