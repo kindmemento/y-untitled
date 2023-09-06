@@ -1,18 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:y_mobile/api/auth_service.dart';
 import 'package:y_mobile/components/signin_button.dart';
 import 'package:y_mobile/components/textfield.dart';
+import 'package:y_mobile/utils/auth_provider.dart';
 
 class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
-
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
-
-  // @TODO: sign in method
-  void signUserIn() {}
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = context.read<AuthProvider>();
+    final authService = AuthService(authProvider);
+    final usernameOrEmailController = TextEditingController();
+    final passwordController = TextEditingController();
+
+    void signUserIn() {
+      String? username;
+      String? email;
+      String password;
+
+      String userInput = usernameOrEmailController.text;
+      if (userInput.contains("@")) {
+        email = userInput;
+      } else {
+        username = userInput;
+      }
+      password = passwordController.text;
+      authService.login(username, email, password);
+    }
+
     return Scaffold(
         backgroundColor: Colors.grey[300],
         body: SafeArea(
@@ -31,8 +48,8 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               CustomTextField(
-                controller: usernameController,
-                hintText: 'Username',
+                controller: usernameOrEmailController,
+                hintText: 'Username or Email',
                 obscureText: false,
               ),
 
@@ -55,10 +72,9 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 25),
 
               SignInButton(onTap: signUserIn),
-              
 
               // or continue with google OR apple sign in buttons || THIS WILL BE IMPLEMENTED LATER ON
-              
+
               // const SizedBox(height: 20),
               // Padding(
               //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
