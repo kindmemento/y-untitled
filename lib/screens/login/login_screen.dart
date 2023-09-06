@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:y_mobile/api/auth_service.dart';
 import 'package:y_mobile/components/signin_button.dart';
 import 'package:y_mobile/components/textfield.dart';
+import 'package:y_mobile/screens/home_screen.dart';
 import 'package:y_mobile/utils/auth_provider.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class LoginScreen extends StatelessWidget {
     final usernameOrEmailController = TextEditingController();
     final passwordController = TextEditingController();
 
-    void signUserIn() {
+    signUserIn() async {
       String? username;
       String? email;
       String password;
@@ -27,7 +28,14 @@ class LoginScreen extends StatelessWidget {
         username = userInput;
       }
       password = passwordController.text;
-      authService.login(username, email, password);
+      await authService.login(username, email, password);
+
+      if (authProvider.isLoggedIn) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen())
+        );
+      }
     }
 
     return Scaffold(
