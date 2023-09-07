@@ -22,7 +22,7 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> screens = [DiscoveryScreen(), ProfileScreen(), ChatScreen()];
+    final List<Widget> screens = [const DiscoveryScreen(), const ProfileScreen(), const ChatScreen()];
     return MaterialApp(
         home: Scaffold(
       body: screens[_currentIndex],
