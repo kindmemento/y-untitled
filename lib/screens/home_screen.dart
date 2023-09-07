@@ -8,10 +8,10 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   void _onTabTapped(int index) {
@@ -22,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _screens = [DiscoveryScreen(), ProfileScreen(), ChatScreen()];
+    final List<Widget> screens = [DiscoveryScreen(), ProfileScreen(), ChatScreen()];
     return MaterialApp(
         home: Scaffold(
-      body: _screens[_currentIndex],
+      body: screens[_currentIndex],
       bottomNavigationBar: AppFooter(
         currentindex: _currentIndex,
         onTabTapped: _onTabTapped,
