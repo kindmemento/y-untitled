@@ -31,6 +31,7 @@ class LoginScreen extends StatelessWidget {
       await authService.login(username, email, password);
 
       if (authProvider.isLoggedIn) {
+        // ignore: use_build_context_synchronously
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomeScreen())
