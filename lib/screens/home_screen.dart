@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:y_mobile/screens/chat_screen.dart';
 import 'package:y_mobile/screens/discovery_screen.dart';
-import 'package:y_mobile/screens/footer.dart';
+import 'package:y_mobile/utils/footer.dart';
 import 'package:y_mobile/screens/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
