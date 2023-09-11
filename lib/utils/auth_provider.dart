@@ -19,14 +19,34 @@ class AuthProvider extends ChangeNotifier {
   AccountType? get accountType => _accountType;
   bool get isLoggedIn => _isLoggedIn;
 
-  void setUser({String? token, String? username, String? firstName, String? lastName, String? email, AccountType? accountType}) {
+  void setToken(String value) {
+    _token = value;
+    notifyListeners();
+  }
+
+  void setUserDetails({String? token, String? username, String? firstName, String? lastName, String? email, AccountType? accountType}) {
     _token = token;
     _username = username;
     _firstName = firstName;
     _lastName = lastName;
     _email = email;
     _accountType = accountType;
-    _isLoggedIn = true;
+    notifyListeners();
+  }
+
+  void setAccountType(String type) {
+    if (type == 'personal') {
+      _accountType = AccountType.personal;
+    } else if (type == 'team') {
+      _accountType = AccountType.team;
+    } else {
+      throw ArgumentError("Invalid account type provided");
+    }
+    notifyListeners();
+  }
+
+  void setLoggedIn(bool value) {
+    _isLoggedIn = value;
     notifyListeners();
   }
 
