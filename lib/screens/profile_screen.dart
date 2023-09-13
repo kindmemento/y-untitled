@@ -18,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15.0),
-              color: Colors.grey[300], // Added a color for visibility. Change as needed.
+              color: Colors.grey[300],
             ),
             child: Padding(
               padding: const EdgeInsets.all(15.0),
@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 20), // Some spacing between columns
+                  const SizedBox(width: 20),
                   // Second column
                   const Expanded(
                     child: Column(
