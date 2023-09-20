@@ -22,22 +22,22 @@ class AuthService {
 
       Map<String, dynamic> decodedToken = JwtDecoder.decode(_token!);
 
-      String? _username = decodedToken['username'];
-      String? _firstName = decodedToken['first_name'];
-      String? _lastName = decodedToken['last_name'];
-      String? _email = decodedToken['email'];
+      String? username0 = decodedToken['username'];
+      String? firstName = decodedToken['first_name'];
+      String? lastName = decodedToken['last_name'];
+      String? email0 = decodedToken['email'];
       String? accountTypeString = decodedToken['account_type'];
 
-      AccountType? _accountType;
+      AccountType? accountType;
       if (accountTypeString == 'personal') {
-        _accountType = AccountType.personal;
+        accountType = AccountType.personal;
       } else if (accountTypeString == 'team') {
-        _accountType = AccountType.team;
+        accountType = AccountType.team;
       }
 
       _authProvider.setToken(_token!);
       _authProvider.setUserDetails(
-          username: _username, firstName: _firstName, lastName: _lastName, email: _email, accountType: _accountType);
+          username: username0, firstName: firstName, lastName: lastName, email: email0, accountType: accountType);
       _authProvider.setLoggedIn(true);
     } catch (e) {
       throw ApiException.from(e);
